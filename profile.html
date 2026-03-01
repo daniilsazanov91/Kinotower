@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль — Kinotower</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main class="profile">
+
+    <h1>Имя пользователя</h1>
+    <p>Email: user@email.com</p>
+
+    <div class="tabs">
+        <button onclick="showTab('reviews')">Отзывы</button>
+        <button onclick="showTab('ratings')">Оценки</button>
+    </div>
+
+    <div id="reviews" class="tab-content">
+        <p>Здесь будут отзывы пользователя</p>
+    </div>
+
+    <div id="ratings" class="tab-content hidden">
+        <p>Здесь будут оценки пользователя</p>
+    </div>
+
+    <a href="edit-profile.html">Редактировать профиль</a>
+
+</main>
+
+<script src="js/script.js"></script>
+</body>
+</html>
