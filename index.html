@@ -1,44 +1,100 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Kinotower — Главная</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinotower</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: #1c1c1c;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.movies {
+    display: flex;
+    gap: 30px;
+    padding: 40px;
+}
+
+.movie-card {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 12px;
+    width: 200px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+button {
+    background: #e50914;
+    border: none;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 100%;
+}
+
+img {
+    width: 100%;
+    border-radius: 8px;
+}
+</style>
+
 </head>
 <body>
 
 <header>
-    <div class="logo">🎬 Kinotower</div>
+    <h2>🎬 Kinotower</h2>
     <nav>
-        <a href="index.html">Главная</a>
-        <a href="login.html">Вход</a>
-        <a href="register.html">Регистрация</a>
-        <a href="profile.html">Профиль</a>
+        <a href="#">Главная</a>
+        <a href="#">Вход</a>
+        <a href="#">Регистрация</a>
+        <a href="#">Профиль</a>
     </nav>
 </header>
 
-<main>
-    <h1>Список фильмов</h1>
+<h1 style="padding-left:40px;">Список фильмов</h1>
 
-    <div class="movies">
+<div class="movies">
 
-        <div class="movie-card">
-            <img src="https://via.placeholder.com/200x300" alt="Movie">
-            <h3>Название фильма</h3>
-            <p>Жанр: Боевик</p>
-            <button onclick="openMovie()">Смотреть</button>
-        </div>
-
-        <div class="movie-card">
-            <img src="https://via.placeholder.com/200x300" alt="Movie">
-            <h3>Название фильма 2</h3>
-            <p>Жанр: Комедия</p>
-            <button onclick="openMovie()">Смотреть</button>
-        </div>
-
+    <div class="movie-card">
+        <img src="https://picsum.photos/200/300" alt="movie">
+        <h3>Название фильма</h3>
+        <p>Жанр: Боевик</p>
+        <button>Смотреть</button>
     </div>
-</main>
 
-<script src="js/script.js"></script>
+    <div class="movie-card">
+        <img src="https://picsum.photos/201/300" alt="movie">
+        <h3>Название фильма 2</h3>
+        <p>Жанр: Комедия</p>
+        <button>Смотреть</button>
+    </div>
+
+</div>
+
 </body>
 </html>
