@@ -26,12 +26,22 @@ nav a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    cursor: pointer;
+}
+
+section {
+    display: none;
+    padding: 40px;
+}
+
+.active {
+    display: block;
 }
 
 .movies {
     display: flex;
     gap: 30px;
-    padding: 40px;
+    flex-wrap: wrap;
 }
 
 .movie-card {
@@ -61,6 +71,31 @@ img {
     width: 100%;
     border-radius: 8px;
 }
+
+.form-container {
+    width: 300px;
+    margin: auto;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input, textarea, select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+}
+
+.tabs button {
+    margin-right: 10px;
+    width: auto;
+}
+
+.hidden {
+    display: none;
+}
 </style>
 
 </head>
@@ -69,33 +104,126 @@ img {
 <header>
     <h2>🎬 Kinotower</h2>
     <nav>
-        <a href="#">Главная</a>
-        <a href="#">Вход</a>
-        <a href="#">Регистрация</a>
-        <a href="#">Профиль</a>
+        <a onclick="showPage('home')">Главная</a>
+        <a onclick="showPage('login')">Вход</a>
+        <a onclick="showPage('register')">Регистрация</a>
+        <a onclick="showPage('profile')">Профиль</a>
     </nav>
 </header>
 
-<h1 style="padding-left:40px;">Список фильмов</h1>
-
+<!-- Главная -->
+<section id="home" class="active">
+<h1>Список фильмов</h1>
 <div class="movies">
 
     <div class="movie-card">
         <img src="https://picsum.photos/200/300" alt="movie">
         <h3>Война не избежна</h3>
         <p>Жанр: Боевик</p>
-        <button>Смотреть</button>
+        <button onclick="showPage('movie')">Смотреть</button>
     </div>
 
     <div class="movie-card">
         <img src="https://picsum.photos/201/300" alt="movie">
         <h3>Возвращение Домой 2</h3>
         <p>Жанр: Комедия</p>
-        <button>Смотреть</button>
+        <button onclick="showPage('movie')">Смотреть</button>
     </div>
 
 </div>
+</section>
+
+<!-- Вход -->
+<section id="login">
+<div class="form-container">
+    <h2>Вход</h2>
+    <form>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Пароль" required>
+        <button type="submit">Войти</button>
+    </form>
+</div>
+</section>
+
+<!-- Регистрация -->
+<section id="register">
+<div class="form-container">
+    <h2>Регистрация</h2>
+    <form>
+        <input type="text" placeholder="Имя" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Пароль" required>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+</div>
+</section>
+
+<!-- Профиль -->
+<section id="profile">
+<h1>Имя пользователя</h1>
+<p>Email: user@email.com</p>
+
+<div class="tabs">
+    <button onclick="showTab('reviews')">Отзывы</button>
+    <button onclick="showTab('ratings')">Оценки</button>
+</div>
+
+<div id="reviews">
+    <p>Здесь будут отзывы пользователя</p>
+</div>
+
+<div id="ratings" class="hidden">
+    <p>Здесь будут оценки пользователя</p>
+</div>
+
+<button onclick="showPage('edit')">Редактировать профиль</button>
+</section>
+
+<!-- Редактирование -->
+<section id="edit">
+<div class="form-container">
+    <h2>Редактирование профиля</h2>
+    <form>
+        <input type="text" placeholder="Новое имя">
+        <input type="email" placeholder="Новый Email">
+        <button type="submit">Сохранить</button>
+    </form>
+</div>
+</section>
+
+<!-- Страница фильма -->
+<section id="movie">
+<h1>Название фильма</h1>
+<img src="https://picsum.photos/300/450">
+<p>Описание фильма. Здесь будет текст из API.</p>
+
+<h3>Оценить фильм</h3>
+<select>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+</select>
+
+<textarea placeholder="Напишите отзыв"></textarea>
+<button>Отправить</button>
+</section>
+
+<script>
+function showPage(page) {
+    document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+    document.getElementById(page).classList.add("active");
+}
+
+function showTab(tab) {
+    document.getElementById('reviews').classList.add('hidden');
+    document.getElementById('ratings').classList.add('hidden');
+    document.getElementById(tab).classList.remove('hidden');
+}
+</script>
 
 </body>
 </html>
+
 
